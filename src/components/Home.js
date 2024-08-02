@@ -1,9 +1,10 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const users = useSelector((state) => state.users);
+    const dispatch = useDispatch();
     console.log(users);
     const navigate = useNavigate()
     return (
@@ -27,7 +28,7 @@ const Home = () => {
                             <td>{users.email}</td>
                             <td>
                                 <Link to={`/edit/${users.id}`}  className='btn btn-sm btn-primary'>Edit</Link>
-                                <Link className='btn btn-sm btn-danger ms-2'>Delete</Link>
+                                <Link onChange={() => handleDelet(user.id)} className='btn btn-sm btn-danger ms-2'>Delete</Link>
                             </td>
                         </tr>
                     ))}           
