@@ -1,7 +1,7 @@
 export const userList = [
     {
-        name:"yousaf khan",
-        email:"yousaft1@gmail.com",
+        name:"Test",
+        email:"test1@gmail.com",
         id:1
     },
     {
