@@ -27,9 +27,9 @@ const Update = () => {
     }
 
     return (
-        <div className='d-flex w-100 vh-50 justify-content-center align-items-center mt-5'>
-            <div className='w-50 border bg-secondary text-white p-5'>
-                <h3>Update User</h3>
+        <div className='d-flex w-60 vh-50 justify-content-center align-items-center mt-5'>
+            <div className=' border bg-secondary text-white p-5'>
+                <h3 className='text_color'>Update User</h3>
                 <form onSubmit={handleUpdate}>
                     <div>
                         <label htmlFor='name'>Name:</label>
@@ -54,7 +54,7 @@ const Update = () => {
                         />
                     </div>
                     <br />
-                    <button className='btn btn-info'>Update</button>
+                    <button className='btn btn-primary'>Update</button>
                 </form>
             </div>
         </div>
