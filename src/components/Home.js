@@ -15,8 +15,8 @@ const Home = () => {
 
     return (
         <div className='container' style={{ marginTop: '2rem' }}>
-            <h2 className='mb-5'>Simple Crud App : Ziontutorial</h2>
-            <Link to="/create" className='btn btn-success my-3'>Create +</Link>
+            <h2 className='mb-5'>Simple Crud App With Redux</h2>
+            <Link to="/create" className='btn btn-primary my-3 p-3 '>Create +</Link>
             <table className='table table-striped'>
                 <thead>
                     <tr>
