@@ -5,10 +5,12 @@ import { deleteUser } from '../redux/UserReducer'; // Import your delete action
 
 const Home = () => {
     const users = useSelector((state) => state.users);
+    console.log(users)
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleDelete = (id) => {
+        console.log(id)
         dispatch(deleteUser(id)); 
         navigate(0); 
     }
