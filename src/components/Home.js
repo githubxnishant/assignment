@@ -1,8 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom';
-import { deleteUser } from '../redux/UserReducer'; // Import your delete action
-
+import { deleteUser } from '../redux/UserReducer'; 
 const Home = () => {
     const users = useSelector((state) => state.users);
     console.log(users)
