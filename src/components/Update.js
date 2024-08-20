@@ -32,6 +32,7 @@ const Update = () => {
                 <h3 className='text_color'>Update User</h3>
                 <form onSubmit={handleUpdate}>
                     <div>
+                        
                         <label htmlFor='name'>Name:</label>
                         <input
                             type='text'
