@@ -3,28 +3,39 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser } from '../redux/UserReducer';
 import { addTodo } from '../redux/TodoReducer';
 import { useNavigate } from 'react-router-dom';
+import { Spin } from 'antd';
 
+async function wait(duration = 1000) {
+    await new Promise(resolve => setTimeout(resolve, duration));
+}
 
 const Create = () => {
 
     const [activeTab, setActiveTab] = useState('todos');
-    const [name,setName] = useState('')
+    const [name,setName] = useState('');
+    const [loading, setLoading] = useState(false);
 
     // const users = useSelector((state) => state.users)
     // const todos = useSelector((state) => state.todos)
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
-    const todoSubmit = (e) => {
+    const todoSubmit = async (e) => {
         e.preventDefault();
-        dispatch(addTodo({name}))
+        setLoading(true);
+        await wait(2000);
+        dispatch(addTodo({name}));
+        setLoading(false);
         navigate('/')
     }
 
-    const userSubmit = (e) => {
+    const userSubmit = async (e) => {
         e.preventDefault();
-        dispatch(addUser({name}))
-        navigate('/')
+        setLoading(true);
+        await wait(2000);
+        dispatch(addUser({name}));
+        setLoading(false);
+        navigate('/');
     }
 
     return (
@@ -35,29 +46,31 @@ const Create = () => {
                     <button onClick={() => {setActiveTab('users')}} className={`mb-3 ${activeTab === 'users' ? 'active-btn' : 'normal-btn' }`}>User</button>
                 </div>
 
-                {activeTab === 'todos' ?
-                <div>
-                    <h3 className='text_color'>Add New ToDo</h3>
-                    <form onSubmit={todoSubmit}>
-                        <div className='mb-3'>
-                            <label htmlFor='name'>Name</label>
-                            <input type='text' name='name' required className='form-control form-signin' placeholder='Enter name' onChange={e=>setName(e.target.value)} />
+                <Spin spinning={loading}>
+                    {activeTab === 'todos' ? (
+                        <div>
+                            <h3 className='text_color'>Add New ToDo</h3>
+                            <form onSubmit={(e) => todoSubmit(e, addTodo)}>
+                                <div className='mb-3'>
+                                    <label htmlFor='name'>Name</label>
+                                    <input type='text' name='name' required className='form-control form-signin' placeholder='Enter name' onChange={e => setName(e.target.value)} />
+                                </div>
+                                <button className='btn btn-primary' disabled={loading}>Submit</button>
+                            </form>
                         </div>
-                        <button className='btn btn-primary'>Submit</button>
-                    </form>
-                </div>
-                :
-                <div>
-                    <h3 className='text_color'>Add New User</h3>
-                    <form onSubmit={userSubmit}>
-                        <div className='mb-3'>
-                            <label htmlFor='name'>Name:</label>
-                            <input type='text' name='name' required className='form-control form-signin' placeholder='Enter name' onChange={e=>setName(e.target.value)} />
+                    ) : (
+                        <div>
+                            <h3 className='text_color'>Add New User</h3>
+                            <form onSubmit={(e) => userSubmit(e, addUser)}>
+                                <div className='mb-3'>
+                                    <label htmlFor='name'>Name:</label>
+                                    <input type='text' name='name' required className='form-control form-signin' placeholder='Enter name' onChange={e => setName(e.target.value)} />
+                                </div>
+                                <button className='btn btn-primary' disabled={loading}>Submit</button>
+                            </form>
                         </div>
-                        <button className='btn btn-primary'>Submit</button>
-                    </form>
-                </div>
-                }
+                    )}
+                </Spin>
             </div>
         </div>
     )
