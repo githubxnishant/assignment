@@ -1,6 +1,7 @@
 html,
 body {
   height: 100%;
+  overflow: hidden;
 }
 .container 
 {
@@ -52,3 +53,34 @@ body {
 
 }
 
+.create-btn{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.normal-btn{
+  border: none;
+  background-color: #fff;
+  font-size: 1.3rem;
+}
+
+.active-btn{
+  background-color: white;
+  border: none;
+  font-size: 1.3rem;
+  color: blue;
+}
+
+.thead{
+  background-color: #f2f2f2;
+  width: 50%;
+}
+
+.nav-btn{
+  color: blue;
+  text-decoration: none;
+  border: none;
+  padding-right: 10px;
+  background-color: white;
+}

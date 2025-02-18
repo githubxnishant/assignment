@@ -1,18 +1,20 @@
 export const userList = [
     {
-        name: "Test",
-        email: "test1@gmail.com",
-        id: 1
+        name: "John Brown",
     },
     {
-        name: "zion",
-        email: "ziontutorial@gmail.com",
-        id: 2
+        name: "Jim Green",
     },
     {
-        name: "Alice",
-        email: "alice@gmail.com",
-        id: 3
+        name: "Joe Black",
     }
-  
+];
+
+export const todoList = [
+    {
+        name: "Todo 1",
+    },
+    {
+        name: "Todo 2",
+    }
 ];

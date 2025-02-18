@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { userList } from "../Data";
 
 const userSlice = createSlice({
     name: "users",
-    initialState: userList,
+    initialState: [],
     reducers: {
         addUser: (state, action) => {
             console.log("Action user", action);
@@ -11,19 +10,15 @@ const userSlice = createSlice({
         },
 
         updateUser: (state, action) => {
-            const { id, name, email } = action.payload;
-            const uu = state.find(user => user.id == id);
-            if (uu) {
-                uu.name = name;
-                uu.email = email;
-            }
-        },
+            const { name, newName } = action.payload;
+            return state.map(user =>
+                user.name === name ? { ...user, name: newName } : user
+            );
+        },        
         
         deleteUser: (state, action) => {
-            const  id  = action.payload;
-            console.log(id)
-            return state.filter(user => user.id != id);
-        }
+            return state.filter(user => user.name !== action.payload.name);
+        },
     }
 });
 

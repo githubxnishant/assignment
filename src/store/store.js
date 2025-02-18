@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import UserReducer from '../redux/UserReducer';
+import TodoReducer from '../redux/TodoReducer';
 
 
 const store = configureStore({
     reducer:{
-      // here user is a variable 
-      //UserReducer in which data is reside .
-      users:UserReducer
+      users:UserReducer, 
+      todos:TodoReducer,
     }
   })
 
