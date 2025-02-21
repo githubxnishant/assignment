@@ -18,7 +18,7 @@ const Create = () => {
     // const users = useSelector((state) => state.users)
     // const todos = useSelector((state) => state.todos)
     const dispatch = useDispatch();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const todoSubmit = async (e) => {
         e.preventDefault();
