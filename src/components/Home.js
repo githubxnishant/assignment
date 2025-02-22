@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ModalForm from "./ModelForm";
+import ModalForm from './ModelForm';
 
 const Home = () => {
     const [activeTab, setActiveTab] = useState("todos");
@@ -13,7 +13,6 @@ const Home = () => {
         setEditingItem(item);
         setModalOpen(true);
     };
-
     // Handle when save button is clicked
     const handleSave = async (name) => {
         if (editingItem) {
