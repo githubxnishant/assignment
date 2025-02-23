@@ -62,14 +62,19 @@ body {
 .normal-btn{
   border: none;
   background-color: #fff;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  width: 4rem;
+  margin: auto 1.5rem auto 0;
 }
 
 .active-btn{
   background-color: white;
+  width: 4rem;
   border: none;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: blue;
+  margin: auto 1.5rem auto 0;
+  border-bottom: 2px solid blue;
 }
 
 .thead{
@@ -92,4 +97,9 @@ body {
 .blue-border{
   border: 2px solid blue;
   color: blue;
+}
+
+.right-pagination{
+  display: flex;
+  justify-content: flex-end;
 }
